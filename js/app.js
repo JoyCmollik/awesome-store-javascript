@@ -3,7 +3,7 @@ const loadProducts = () => {
 	document.getElementById('spinner-container').style.display = 'flex';
 
 	// fetching data
-	const url = `https://fakestoreapi.com/products`;
+	const url = `https://raw.githubusercontent.com/ProgrammingHero1/ranga-store-api/main/ranga-api.json`;
 	fetch(url)
 		.then((response) => response.json())
 		.then((data) => showProducts(data));
@@ -23,46 +23,56 @@ const showProducts = (products) => {
 		const div = document.createElement('div');
 		div.classList.add('product');
 		div.innerHTML = `
-      <article class="single-product">
-								<!-- img -->
-								<div class="product-img">
-									<img
-										src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
-										alt="product image"
-									/>
-								</div>
-								<h4 class="product-header"> ${product.title.slice(0, 40)} </h4>
-								<!-- body -->
-								<div class="product-body">
-									<h2>$99</h2>
-									<p>Category: Men's Cloth</p>
-								</div>
-								<div class="product-footer">
-									<!-- rating -->
-									<div class="rating flex-center">
-										<div class="rating-item rating-point">
-											<img
-												src="images/rarting-star.svg"
-												alt="start"
-												width="25px"
-											/>
-											<h4 class="m-0">4.5</h4>
-										</div>
-										<div class="rating-item rating-count">
-											<img
-												src="images/rating-person.svg"
-												alt="persons"
-												width="25px"
-											/>
-											<h4 class="m-0">100</h4>
-										</div>
-									</div>
-									<!-- buttons -->
-									<button class="add-cart-btn">
-										Add to Cart
-									</button>
-								</div>
-							</article>
+      		<article class="single-product">
+
+				<!-- img -->
+				<div class="product-img">
+					<img
+						src="${product.image}"
+						alt="product image"
+					/>
+				</div>
+				<h4 class="product-header">
+					${product.title}
+				</h4>
+
+				<!-- body -->
+				<div class="product-body">
+					<h2>$${product.price}</h2>
+					<p>Category: ${product.category}</p>
+				</div>
+
+				<!-- footer -->
+				<div class="product-footer">
+					<!-- rating -->
+					<div class="rating flex-center">
+						<p class="rating-badge">Rating</p>
+						<div class="rating-item rating-point">
+							<img
+								src="images/rating-star.svg"
+								alt="start"
+								width="25px"
+							/>
+							<h4 class="m-0">${product.rating.rate}</h4>
+						</div>
+						<div class="rating-item rating-count">
+							<img
+								src="images/rating-person.svg"
+								alt="persons"
+								width="25px"
+							/>
+							<h4 class="m-0">${product.rating.count}</h4>
+						</div>
+					</div>
+					<!-- buttons -->
+					<button class="details-btn">
+						Know More Details
+					</button>
+					<button onclick="addToCart(${product.id},${product.price})" class="add-cart-btn">
+						add to cart
+					</button>
+				</div>
+			</article>
     `;
 		document.getElementById('all-products').appendChild(div);
 	}

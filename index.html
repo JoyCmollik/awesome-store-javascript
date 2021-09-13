@@ -4,7 +4,12 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>FakeStore</title>
+		<link
+			rel="shortcut icon"
+			href="images/store-logo.svg"
+			type="image/x-icon"
+		/>
+		<title>Awesome Store</title>
 
 		<!-- google Poppins font 300, 400, 500, 700 -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,12 +18,6 @@
 			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
 			rel="stylesheet"
 		/>
-
-		<!-- font awesome -->
-		<script
-			src="https://kit.fontawesome.com/c3708217cb.js"
-			crossorigin="anonymous"
-		></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link
@@ -53,7 +52,7 @@
 				<div class="search-box">
 					<input class="search-field" type="text" />
 					<button class="search-btn">
-						<i class="fas fa-search"></i>
+						<img src="images/search-icon.svg" alt="search icon" />
 					</button>
 				</div>
 			</div>
@@ -70,51 +69,7 @@
 				<!-- products container -->
 				<div class="col-md-9 col-lg-9 col-sm-7">
 					<!-- products here -->
-					<div id="all-products" class="">
-						<!-- single product -->
-						<div class="product">
-							<article class="single-product">
-								<!-- img -->
-								<div class="product-img">
-									<img
-										src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
-										alt="product image"
-									/>
-								</div>
-								<h4>Product Name</h4>
-								<!-- body -->
-								<div class="product-body">
-									<p>Category: Men's Cloth</p>
-									<h2>$99</h2>
-								</div>
-								<div class="product-footer">
-									<!-- rating -->
-									<div class="rating flex-center">
-										<div class="rating-item rating-point">
-											<img
-												src="images/rarting-star.svg"
-												alt="start"
-												width="25px"
-											/>
-											<h4 class="m-0">4.5</h4>
-										</div>
-										<div class="rating-item rating-count">
-											<img
-												src="images/rating-person.svg"
-												alt="persons"
-												width="25px"
-											/>
-											<h4 class="m-0">100</h4>
-										</div>
-									</div>
-									<!-- buttons -->
-									<button class="add-cart-btn">
-										Add to Cart
-									</button>
-								</div>
-							</article>
-						</div>
-					</div>
+					<div id="all-products" class=""></div>
 				</div>
 
 				<!-- cart container -->
@@ -122,7 +77,18 @@
 					<div class="cart" id="my-cart">
 						<table class="table">
 							<thead>
-								<h1>My Cart</h1>
+								<h1>
+									<span style="margin-right: 10px"
+										>My Cart</span
+									>
+									<span>
+										<img
+											width="40px"
+											src="images/cart.svg"
+											alt="cart"
+										/>
+									</span>
+								</h1>
 								<tr>
 									<th scope="col"></th>
 									<th scope="col"></th>
@@ -170,7 +136,7 @@
 							</tbody>
 						</table>
 						<div class="parces text-center">
-							<button class="btn btn-primary text-center">
+							<button class="btn text-center buy-btn">
 								Buy Now
 							</button>
 						</div>
