@@ -8,14 +8,13 @@ const loadProducts = () => {
 		.then((response) => response.json())
 		.then((data) => showProducts(data));
 };
-loadProducts();
 
 // show all product in UI
 const showProducts = (products) => {
 	// stopping spinner
 	document.getElementById('spinner-container').style.display = 'none';
 
-	if (!products) {
+	TODO: if (!products) {
 		console.log('nothing');
 	}
 	const allProducts = products.map((pd) => pd);
@@ -24,17 +23,46 @@ const showProducts = (products) => {
 		const div = document.createElement('div');
 		div.classList.add('product');
 		div.innerHTML = `
-      <div class="single-product">
-        <div>
-          <img class="product-image" src=${product.image}></img>
-        </div>
-
-        <h3>${product.title}</h3>
-        <p>Category: ${product.category}</p>
-        <h2>Price: $ ${product.price}</h2>
-        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-        <button id="details-btn" class="btn btn-danger">Details</button>
-      </div>
+      <article class="single-product">
+								<!-- img -->
+								<div class="product-img">
+									<img
+										src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+										alt="product image"
+									/>
+								</div>
+								<h4 class="product-header"> ${product.title.slice(0, 40)} </h4>
+								<!-- body -->
+								<div class="product-body">
+									<h2>$99</h2>
+									<p>Category: Men's Cloth</p>
+								</div>
+								<div class="product-footer">
+									<!-- rating -->
+									<div class="rating flex-center">
+										<div class="rating-item rating-point">
+											<img
+												src="images/rarting-star.svg"
+												alt="start"
+												width="25px"
+											/>
+											<h4 class="m-0">4.5</h4>
+										</div>
+										<div class="rating-item rating-count">
+											<img
+												src="images/rating-person.svg"
+												alt="persons"
+												width="25px"
+											/>
+											<h4 class="m-0">100</h4>
+										</div>
+									</div>
+									<!-- buttons -->
+									<button class="add-cart-btn">
+										Add to Cart
+									</button>
+								</div>
+							</article>
     `;
 		document.getElementById('all-products').appendChild(div);
 	}
@@ -93,3 +121,5 @@ const updateTotal = () => {
 		getInputValue('total-tax');
 	document.getElementById('total').innerText = grandTotal.toFixed(2);
 };
+
+loadProducts();
