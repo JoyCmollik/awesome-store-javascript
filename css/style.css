@@ -29,7 +29,8 @@ p,
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
 	margin: 0;
 }
 
@@ -84,7 +85,6 @@ header nav h4 {
 .search-box {
 	border-radius: 25px;
 	background: #f5f5f5;
-	/* box-shadow: -5px -5px 70px #d0d0d0, 5px 5px 70px #ffffff; */
 	overflow: hidden;
 }
 
@@ -126,18 +126,16 @@ header nav h4 {
 
 .single-product {
 	background: #ffffff;
-	/* box-shadow: -5px -5px 70px #d0d0d0, 5px 5px 70px #ffffff; */
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	height: 100%;
+	position: relative;
 }
 
 .product-img {
-	padding: 10px;
-	min-height: 170px;
-	/* border: 1px solid yellowgreen; */
+	padding: 20px 0 10px 0;
 }
 
 .product-img img {
@@ -147,43 +145,41 @@ header nav h4 {
 	object-position: top;
 }
 
-.product-header {
-	padding: 10px;
+.product-title {
+	padding: 10px 10px 0 10px;
 	min-height: 50px;
+	color: var(--dark-color);
 }
 
-.product-body p {
+.product-category {
 	font-weight: 300;
-	margin: 11px 0;
+	padding: 5px;
+	text-transform: capitalize;
+	font-size: 10px;
+	color: #ffffff;
+	/* background: #cadefc; */
+	background: #07689f;
+	border-radius: 0 0 0 4px;
+	position: absolute;
+	top: 0%;
+	right: 0%;
 }
 
-.product-body h2 {
+.product-price {
 	color: var(--secondary-color);
-	margin: 10px 0;
+	margin: 10px auto;
 }
 
 .rating {
 	border-radius: 10px;
 	width: 90%;
 	margin: 10px auto;
-	padding: 19px 0 10px 0;
-	background: #bad7df;
-	position: relative;
-}
-
-.rating-badge {
-	position: absolute;
-	background: #dff4f3;
-	padding: 5px 16px;
-	border-radius: 10px;
-	top: 0;
-	left: 50%;
-	color: #ffd460;
-	transform: translate(-50%, -50%);
+	padding: 5px 0 5px 0;
+	background: var(--light-color);
 }
 
 .rating-item {
-	background: var(--light-color);
+	background: #cbf1f5;
 	padding: 0 19px;
 	border-radius: 10px;
 	color: var(--dark-color);
@@ -245,8 +241,6 @@ header nav h4 {
 		#47557e,
 		#48466d
 	);
-	/* padding: 10px; */
-	/* box-shadow: -5px -5px 70px #d0d0d0, 5px 5px 70px #ffffff; */
 	border-radius: 5px;
 	margin-right: 30px;
 	position: fixed;
@@ -285,16 +279,10 @@ header nav h4 {
 		grid-template-columns: repeat(2, 1fr);
 	}
 	.cart {
-		width: 300px;
-		/* border: 1px solid green; */
-		padding: 10px;
-		box-shadow: 10px 10px 20px gray;
+		max-width: 300px;
 		border-radius: 5px;
-		margin-right: 30px;
-		position: fixed;
-	}
-	.cart-main {
-		padding-right: 10px;
+		position: static;
+		margin: 10px auto;
 	}
 }
 @media only screen and (max-width: 468px) {
@@ -386,14 +374,5 @@ header nav h4 {
 }
 
 /* -------------------------------
-    **** search field styles **** 
- --------------------------------- */
-/* -------------------------------
-    **** search field styles **** 
- --------------------------------- */
-/* -------------------------------
-    **** search field styles **** 
- --------------------------------- */
-/* -------------------------------
-    **** search field styles **** 
+    **** T H E E N D I N G **** 
  --------------------------------- */

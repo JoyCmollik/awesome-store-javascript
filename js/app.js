@@ -9,6 +9,12 @@ const loadProducts = () => {
 		.then((data) => showProducts(data));
 };
 
+const loadSingleProduct = (productId) => {
+	fetch(`https://fakestoreapi.com/products/${productId}`)
+		.then((res) => res.json())
+		.then((json) => console.log(json));
+};
+
 // show all product in UI
 const showProducts = (products) => {
 	// stopping spinner
@@ -32,28 +38,24 @@ const showProducts = (products) => {
 						alt="product image"
 					/>
 				</div>
-				<h4 class="product-header">
-					${product.title}
-				</h4>
 
-				<!-- body -->
-				<div class="product-body">
-					<h2>$${product.price}</h2>
-					<p>Category: ${product.category}</p>
-				</div>
+				<p class="product-category">${product.category}</p>
 
-				<!-- footer -->
-				<div class="product-footer">
+				<h4 class="product-title">
+					${product.title} </h4>
+
+				<!-- info -->
+				<div class="product-info">
+					<h2 class="product-price">$${product.price}</h2>
 					<!-- rating -->
 					<div class="rating flex-center">
-						<p class="rating-badge">Rating</p>
 						<div class="rating-item rating-point">
 							<img
 								src="images/rating-star.svg"
 								alt="start"
 								width="25px"
 							/>
-							<h4 class="m-0">${product.rating.rate}</h4>
+							<h5>${product.rating.rate}</h5>
 						</div>
 						<div class="rating-item rating-count">
 							<img
@@ -61,13 +63,11 @@ const showProducts = (products) => {
 								alt="persons"
 								width="25px"
 							/>
-							<h4 class="m-0">${product.rating.count}</h4>
+							<h5>${product.rating.count}</h5>
 						</div>
 					</div>
 					<!-- buttons -->
-					<button class="details-btn">
-						Know More Details
-					</button>
+					<button type="button" onclick="loadSingleProduct('${product.id}')" class="details-btn" data-toggle="modal" data-target="#product-detail-modal">Know More Details</button>
 					<button onclick="addToCart(${product.id},${product.price})" class="add-cart-btn">
 						add to cart
 					</button>
